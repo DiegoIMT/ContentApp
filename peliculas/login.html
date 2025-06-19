@@ -1,0 +1,64 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar Sesión - Content App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #1a1a2e, #16213e);
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-container {
+      background-color: #1e1e2f;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+    <form onsubmit="loginUser(event)">
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Entrar</button>
+    </form>
+    <p class="mt-3 text-center">
+      ¿No tienes cuenta? <a href="register.html" class="text-decoration-none text-info">Regístrate</a>
+    </p>
+  </div>
+
+  <script>
+    function loginUser(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Validación de prueba (reemplazar con autenticación real)
+      if (email && password) {
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "peliculas.html";
+      } else {
+        alert("Credenciales incorrectas");
+      }
+    }
+  </script>
+</body>
+</html>
